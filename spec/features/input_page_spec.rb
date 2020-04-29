@@ -24,4 +24,11 @@ feature 'Home page greeting' do
     click_button('Submit')
     expect(page).to have_current_path('/greet')
   end
+
+  scenario 'Greet page contains the name entered' do
+    visit('/')
+    fill_in('name', with: 'John')
+    click_button('Submit')
+    expect(page).to have_content('John')
+  end
 end
