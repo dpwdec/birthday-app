@@ -41,4 +41,18 @@ feature 'Home page greeting' do
     visit('/')
     expect(page).to have_field('day')
   end
+
+  scenario 'It has a dropdown for month' do
+    visit('/')
+    expect(page).to have_field('month')
+  end
+
+  scenario 'Greet page contains the birthday entered' do
+    visit('/')
+    fill_in('name', with: 'John')
+    fill_in('day', with: '20')
+    find_by_id('month').find(:xpath, 'option[2]').select_option
+    click_button('Submit')
+    expect(page).to have_content('20th February')
+  end
 end

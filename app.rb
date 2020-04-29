@@ -7,6 +7,8 @@ class BirthdayGreeter < Sinatra::Base
 
   post '/greet' do
     @name = params[:name]
+    @day = params[:day]
+    @month = params[:month]
     erb :greet
   end
 end
