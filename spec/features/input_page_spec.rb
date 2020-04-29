@@ -18,4 +18,10 @@ feature 'Home page greeting' do
     visit('/')
     expect(page).to have_button('Submit')
   end
+
+  scenario 'Clicking on the submit button takes you to the greet page' do
+    visit('/')
+    click_button('Submit')
+    expect(page).to have_current_path('/greet')
+  end
 end
