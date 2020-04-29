@@ -31,4 +31,14 @@ feature 'Home page greeting' do
     click_button('Submit')
     expect(page).to have_content('John')
   end
+
+  scenario 'It has a label asking for your birthday' do
+    visit('/')
+    expect(page).to have_content("When's your birthday?")
+  end
+
+  scenario 'It has a a field for day' do
+    visit('/')
+    expect(page).to have_field('day')
+  end
 end
