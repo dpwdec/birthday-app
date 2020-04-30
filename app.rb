@@ -9,16 +9,12 @@ class BirthdayGreeter < Sinatra::Base
   end
 
   post '/process' do
-    session[:name] = params[:name]
-    session[:day] = params[:day]
-    session[:month] = params[:month]
+    session[:user] = User.new(params[:name], params[:day], params[:month])
     redirect('/greet')
   end
 
   get '/greet' do
-    @name = session[:name]
-    @day = session[:day]
-    @month = session[:month]
+    @user = session[:user]
     erb :greet
   end
 end
