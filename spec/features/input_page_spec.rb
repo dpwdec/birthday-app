@@ -58,9 +58,9 @@ feature 'Home page greeting' do
 
   scenario 'Greet page says how many days until your next birthday, this year' do
     visit('/')
+    fill_in('name', with: 'John')
     new_date = Date.today
     10.times { new_date = new_date.next_day }
-    fill_in('name', with: 'John')
     fill_in('day', with: new_date.day)
     find_by_id('month').find(:xpath, "option[#{(new_date.month)}]").select_option
     click_button('Submit')
@@ -69,9 +69,9 @@ feature 'Home page greeting' do
 
   scenario 'Greet page says how many days until your next birthday, next year' do
     visit('/')
+    fill_in('name', with: 'John')
     new_date = Date.today
     10.times { new_date = new_date.prev_day }
-    fill_in('name', with: 'John')
     fill_in('day', with: new_date.day)
     find_by_id('month').find(:xpath, "option[#{(new_date.month)}]").select_option
     click_button('Submit')
