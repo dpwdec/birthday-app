@@ -19,11 +19,14 @@ feature 'Home page greeting' do
     expect(page).to have_button('Submit')
   end
 
-  # scenario 'Clicking on the submit button takes you to the greet page' do
-  #   visit('/')
-  #   click_button('Submit')
-  #   expect(page).to have_current_path('/greet')
-  # end
+  scenario 'Clicking on the submit button takes you to the greet page' do
+    visit('/')
+    fill_in('name', with: 'John')
+    fill_in('day', with: Date.today.day.to_s)
+    find_by_id('month').find(:xpath, "option[#{(Date.today.month)}]").select_option
+    click_button('Submit')
+    expect(page).to have_current_path('/greet')
+  end
 
   # scenario 'Greet page contains the name entered' do
   #   visit('/')
