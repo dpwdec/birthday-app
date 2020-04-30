@@ -1,4 +1,5 @@
 require 'sinatra'
+require './lib/birthday_calculator'
 
 class BirthdayGreeter < Sinatra::Base
 
@@ -15,6 +16,9 @@ class BirthdayGreeter < Sinatra::Base
 
   get '/greet' do
     @user = session[:user]
+    @birthday_calculator = BirthdayCalculator.new
+    #p BrithdayCalculator.days_until(@user.day, @user.month)
+    @days_until = @birthday_calculator.days_until(@user.day, @user.month)
     erb :greet
   end
 end

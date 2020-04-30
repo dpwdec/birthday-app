@@ -1,2 +1,5 @@
-<h1> <%= @user.name %> </h1>
-<h1> <%= @user.day %>th <%= @user.month %> </h1>
+<% if @days_until == 0 %>
+  <h1>Happy Birthday <%= @user.name %>!</h1>
+<% else %>
+  <h1> NO! </h1>
+<% end %>

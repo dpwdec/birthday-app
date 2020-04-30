@@ -1,8 +1,8 @@
 require 'date'
 
-class BirthdayCalcaulator
+class BirthdayCalculator
 
-  def self.days_until(day, month, today = Date.today)
+  def days_until(day, month, today = Date.today)
     birthday = birthday_to_date(day, month)
     if (birthday - today) < 0
       birthday = birthday.next_year
@@ -12,7 +12,7 @@ class BirthdayCalcaulator
     end
   end
 
-  def self.birthday_to_date(day, month)
+  def birthday_to_date(day, month)
     number_month = Date::ABBR_MONTHNAMES.index(month[0..2])
     Date.new(Date.today.year, number_month, day.to_i)
   end
