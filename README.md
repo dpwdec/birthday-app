@@ -13,5 +13,9 @@ I want to be able to enter my name into a form and submit it.
 
 As a user
 So that the app knows my birthday
-I want to be enter my birthday into the form with my name and submit it.
+I want to be able to enter my birthday into the form with my name and submit it.
+
+As a user
+So that I can be greeted correctly
+I want the greet page to wish me Happy Birthday if its my birthday.
 ```
