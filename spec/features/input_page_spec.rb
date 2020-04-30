@@ -56,7 +56,7 @@ feature 'Home page greeting' do
     expect(page).to have_content('Happy Birthday John!')
   end
 
-  scenario 'Greet page says how many days until your next birthday this year' do
+  scenario 'Greet page says how many days until your next birthday, this year' do
     visit('/')
     new_date = Date.today
     10.times { new_date = new_date.next_day }
@@ -65,5 +65,16 @@ feature 'Home page greeting' do
     find_by_id('month').find(:xpath, "option[#{(new_date.month)}]").select_option
     click_button('Submit')
     expect(page).to have_content('Your birthday will be in 10 days, John.')
+  end
+
+  scenario 'Greet page says how many days until your next birthday, next year' do
+    visit('/')
+    new_date = Date.today
+    10.times { new_date = new_date.prev_day }
+    fill_in('name', with: 'John')
+    fill_in('day', with: new_date.day)
+    find_by_id('month').find(:xpath, "option[#{(new_date.month)}]").select_option
+    click_button('Submit')
+    expect(page).to have_content('Your birthday will be in 355 days, John.')
   end
 end
