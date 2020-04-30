@@ -18,7 +18,7 @@ class BirthdayGreeter < Sinatra::Base
     @user = session[:user]
     @birthday_calculator = BirthdayCalculator.new
     #p BrithdayCalculator.days_until(@user.day, @user.month)
-    @days_until = @birthday_calculator.days_until(@user.day, @user.month)
+    @days_until = @birthday_calculator.days_until(@user.day, @user.month).to_i
     erb :greet
   end
 end

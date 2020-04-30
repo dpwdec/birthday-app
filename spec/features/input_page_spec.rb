@@ -58,10 +58,12 @@ feature 'Home page greeting' do
 
   scenario 'Greet page says how many days until your next birthday this year' do
     visit('/')
+    new_date = Date.today
+    10.times { new_date = new_date.next_day }
     fill_in('name', with: 'John')
-    fill_in('day', with: 20)
-    find_by_id('month').find(:xpath, "option[#{(Date.today.month)}]").select_option
+    fill_in('day', with: new_date.day)
+    find_by_id('month').find(:xpath, "option[#{(new_date.month)}]").select_option
     click_button('Submit')
-    expect(page).to have_content('Happy Birthday John!')
+    expect(page).to have_content('Your birthday will be in 10 days, John.')
   end
 end
