@@ -13,6 +13,10 @@ describe BirthdayCalcaulator do
       today = Date.parse("17 September #{Date.today.year}")
       expect(described_class.days_until('20', 'December', today)).to eq(94)
     end
+
+    it 'returns a numnber of days if the date in the past based on the date next year' do
+      
+    end
   end
 
   describe "#birthday_to_date" do

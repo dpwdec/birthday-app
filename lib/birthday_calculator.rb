@@ -4,7 +4,12 @@ class BirthdayCalcaulator
 
   def self.days_until(day, month, today = Date.today)
     birthday = birthday_to_date(day, month)
-    birthday - today
+    if (birthday - today) < 0
+      birthday = birthday.next_year
+      return birthday - today
+    else
+      return birthday - today
+    end
   end
 
   def self.birthday_to_date(day, month)
