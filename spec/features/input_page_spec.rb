@@ -12,8 +12,7 @@ feature 'Home page greeting' do
   end
 
   scenario 'Clicking on the submit button takes you to the greet page' do
-    visit('/')
-    fill_in('name', with: 'John')
+    fill_name
     fill_in('day', with: Date.today.day.to_s)
     find_by_id('month').find(:xpath, "option[#{(Date.today.month)}]").select_option
     click_button('Submit')
@@ -21,8 +20,7 @@ feature 'Home page greeting' do
   end
 
   scenario 'Greet page says "Happy Birthday" when your birthday is today' do
-    visit('/')
-    fill_in('name', with: 'John')
+    fill_name
     fill_in('day', with: Date.today.day.to_s)
     find_by_id('month').find(:xpath, "option[#{(Date.today.month)}]").select_option
     click_button('Submit')
@@ -30,8 +28,7 @@ feature 'Home page greeting' do
   end
 
   scenario 'Greet page says how many days until your next birthday, this year' do
-    visit('/')
-    fill_in('name', with: 'John')
+    fill_name
     new_date = Date.today
     10.times { new_date = new_date.next_day }
     fill_in('day', with: new_date.day)
@@ -41,8 +38,7 @@ feature 'Home page greeting' do
   end
 
   scenario 'Greet page says how many days until your next birthday, next year' do
-    visit('/')
-    fill_in('name', with: 'John')
+    fill_name
     new_date = Date.today
     10.times { new_date = new_date.prev_day }
     fill_in('day', with: new_date.day)
