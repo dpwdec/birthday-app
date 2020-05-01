@@ -1,5 +1,36 @@
+<%= erb(:_style, :layout => false) %>
+</br></br
+<head>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://i.pinimg.com/originals/e5/83/3e/e5833e1bea7d379f0f4e4ae250b7cf81.gif");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
 <% if @days_until == 0 %>
-  <h1>Happy Birthday <%= @user.name %>!</h1>
+  <div class="bg">
+    <div class="col-md-6 offset-md-3">
+      </br></br></br></br></br></br>
+      <h2>Happy Birthday <%= @user.name %>!</h2>
+    </div>
+  </div>
 <% else %>
-  <h1>Your birthday will be in <%= @days_until %> days, <%= @user.name %>.</h1>
+  <div class="col-md-6 offset-md-3">
+    </br></br></br></br></br></br>
+    <h2>Your birthday will be in <%= @days_until %> days, <%= @user.name %>.</h2>
+  </div>
 <% end %>

@@ -1,26 +1,30 @@
-
-
-<h1>Hello there!</h1>
-
-<form action="/process" method="post">
-  <label for="name">What's your name?</label><br>
-  <input type="text" id="name" name="name"><br>
-  <label>When's your birthday?</label><br>
-  <label>day:</label>
-  <input type="text" name="day"><br>
-  <select name="month" id="month">
-    <option value="January">January</option>
-    <option value="February">February</option>
-    <option value="March">March</option>
-    <option value="April">April</option>
-    <option value="May">May</option>
-    <option value="June">June</option>
-    <option value="July">July</option>
-    <option value="August">August</option>
-    <option value="September">September</option>
-    <option value="October">October</option>
-    <option value="November">November</option>
-    <option value="December">December</option>
-  </select>
-  <input type="submit" value="Submit">
-</form>
+<%= erb(:_style, :layout => false) %>
+<div class="col-md-6 offset-md-3">
+    <h1>Hello there!</h1>
+    <div class="form-group">
+      <form action="/process" method="post">
+        <label for="name">What's your name?</label><br>
+        <input type="text" id="name" name="name" class="form-control"><br>
+        <label>When's your birthday?</label><br>
+        <label>Day:</label>
+        <input type="text" name="day" class="form-control"><br>
+        <label>Month:</label>
+        <select name="month" id="month" class="form-control">
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+        </br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </form>
+    </div>
+</div>

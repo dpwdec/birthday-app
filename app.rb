@@ -4,6 +4,7 @@ require './lib/user'
 
 class BirthdayGreeter < Sinatra::Base
 
+  configure(:development) { set :session_secret, 'set' }
   enable :sessions
 
   get '/' do
